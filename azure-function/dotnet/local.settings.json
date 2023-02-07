@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=false;",
+    "AzureWebJobsSecretStorageType": "files",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "RealTimeFeedUrl": "https://s3.amazonaws.com/kcm-alerts-realtime-prod/vehiclepositions_enhanced.json",
+    "LogicAppUrl": "",
+    "AzureSQLConnectionString": "Server=tcp:bus-server350933.database.windows.net,1433;Database=bus-db;User ID=cloudadmin;Password=The_thauman1;Encrypt=true;Connection Timeout=30;"
+  }
+}
