@@ -1,5 +1,7 @@
 name: 'Deploy Azure SQL Database schema'
 
+
+
 on:
   push:
     branches:
@@ -15,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy Database Job
     steps:
+    - name: Azure Login
+      uses: Azure/login@v1
+
       - uses: actions/checkout@v2
       - uses: Azure/sql-action@v1.2
         with:
