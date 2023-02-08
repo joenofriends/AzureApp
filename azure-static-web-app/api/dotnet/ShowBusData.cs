@@ -25,13 +25,13 @@ namespace ShowBusData
         [FunctionName("ShowBusData")]
         public static async Task<IActionResult> ShowBusData([HttpTrigger("get", Route = "bus-data")] HttpRequest req, ILogger log)
         {                              
-            int rid = 0, gid = 0;
+            int rid = 0, gid = 0, bean = 0;
 
             Int32.TryParse(req.Query["rid"], out rid);
             Int32.TryParse(req.Query["gid"], out gid);
             Int32.TryParse(req.Query["bean"], out bean);
             console.log(bean);
-            
+
             using(var conn = new SqlConnection(AZURE_CONN_STRING))
             {
                 var result = await conn.QuerySingleOrDefaultAsync<string>(
