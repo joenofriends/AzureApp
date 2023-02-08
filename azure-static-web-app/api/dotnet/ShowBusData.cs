@@ -29,6 +29,8 @@ namespace ShowBusData
 
             Int32.TryParse(req.Query["rid"], out rid);
             Int32.TryParse(req.Query["gid"], out gid);
+            Int32.TryParse(req.Query["bean"], out bean);
+            console.log(bean);
             
             using(var conn = new SqlConnection(AZURE_CONN_STRING))
             {
