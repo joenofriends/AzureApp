@@ -75,7 +75,7 @@
             const rid = params.get('rid');
             const gid = params.get('gid');
             const bean = params.get('bean');
-            const apiUrl = `/api/bus-data?rid=${rid}&gid=${gid}&bean=${bean}`;
+            const apiUrl = `/api/bus-data?rid=${rid}&gid=${gid}`;
             $.getJSON(apiUrl, data => {
                 console.log(data);
                 plotWKT(data);                
