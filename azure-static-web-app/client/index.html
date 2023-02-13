@@ -32,6 +32,7 @@
         var features = new ol.Collection();
         var format = new ol.format.WKT();
         var current_shape = "point";
+        var someData;
 
         var fill = new ol.style.Fill({
             color: 'rgba(167, 122, 210, 0.2)'
@@ -133,6 +134,8 @@
     <div class="container-fluid" style="padding:0px;border:0px;height:100%">
         <div class="span12">
             "i do what i want"
+            <div id="map" class="map" style="z-index: 0"></div>
+            
             <!--
                 <div id="map" class="map" style="z-index: 0"></div>
             -->
