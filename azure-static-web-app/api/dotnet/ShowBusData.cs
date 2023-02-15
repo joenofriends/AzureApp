@@ -25,7 +25,27 @@ namespace ShowBusData
         [FunctionName("ShowBusData")]
         public static async Task<IActionResult> ShowBusData([HttpTrigger("get", Route = "bus-data")] HttpRequest req, ILogger log)
         {                              
-            int rid = 0, gid = 0, bean = 0;
+            int rid = 0, gid = 0;
+
+            Int32.TryParse(req.Query["rid"], out rid);
+            Int32.TryParse(req.Query["gid"], out gid);
+
+            using(var conn = new SqlConnection(AZURE_CONN_STRING))
+            {
+                var result = await conn.QuerySingleOrDefaultAsync<string>(
+                    "web.GetMonitoredBusData", 
+                    new {
+                        @RouteId = rid,
+                        @GeofenceId = gid
+                    }, commandType: CommandType.StoredProcedure);                
+                
+                return new OkObjectResult(JObject.Parse(result));
+            }            
+        }
+        [FunctionName("PostDrillData")]
+        public static async Task<IActionResult> ShowBusData([HttpTrigger("get", Route = "drill-data")] HttpRequest req, ILogger log)
+        {                              
+            int rid = 0, gid = 0;
 
             Int32.TryParse(req.Query["rid"], out rid);
             Int32.TryParse(req.Query["gid"], out gid);

@@ -29,6 +29,75 @@
         var map;
         var typeSelect;
         var draw;
+        /*var drillPackage = 
+        {
+            "DrillId":0,
+            "Date": '2023-02-01',
+            "DayOrNight": 0,
+            "DewateringDelay": 0.0,
+  FishingDelay float(24),
+  CalibrationDelay float(24), 
+  RigMaintenanceDelay float(24),
+  RigBreakdownDelay float(24),
+  SurveyToolSignalLossDelay float(24), 
+  DHMBreakdownDelay float(24),
+  ContractorIncidentDelay float(24),
+  ManningDelay float(24),
+  OtherContractorDelay float(24),
+  StoneDustingDelay float(24),
+  NoTransportDelay float(24), 
+  NoLoaderDriftyDelay float(24),
+  AccessEnvironmentDelay float(24), 
+  NoPowerDelay float(24),
+  ElectricalCodesDelay float(24),
+  DewaterDelay float(24),
+  ERZInspectionsDelay float(24),
+  MineIncidentDelay float(24),
+  SurfaceSuctionDelay float(24),
+  OtherPitDelay float(24),
+  DrillingCoalHours float(24),
+  DrillingStoneHours float(24),
+  BranchingHours float(24),
+  FlushingHours float(24),
+  PushPullRodsHours float(24),
+  CoringHours float(24),
+  ConduitCycleHours float(24),
+  FeedFrameHours float(24),
+  StandpipeHours float(24),
+  ReamingHours float(24),
+  SetupHours float(24),
+  MeetingsHours float(24),
+  TravelHours float(24),
+  GroutingBoreholesHours float(24),
+  LabourHours float(24),
+  GasFlowsHours float(24),
+  ConsumablesHours float(24),
+  MobilisationHours float(24),
+  DeMobilisationHours float(24),
+  PlannedDrillingCoalMetres smallint,
+  PlannedDrillingStoneMetres smallint,
+  PlannedConduitingMetres smallint,
+  PlannedReamingMetres smallint,
+  PlannedCoringMetres smallint,
+  DrilledCoalMetres smallint,
+  DrilledStoneMetres smallint,
+  ConduitingMetres smallint,
+  ReamingMetres smallint,
+  CoringMetres smallint, 
+  StartOfShift datetime2,
+  FirstActivity datetime2,
+  LastActivity datetime2,
+  EndOfShift datetime2,
+  DrillerId smallint,
+  Offsider tinyint,
+  Fitter tinyint,
+  DHMSerialNo int,
+  DGSSerialNo int,
+  SLAMs tinyint,
+  VFL tinyint,
+  Hazob tinyint,
+  POPs tinyint, 
+        };*/
         var features = new ol.Collection();
         var format = new ol.format.WKT();
         var current_shape = "point";
@@ -77,9 +146,13 @@
             const bean = params.get('bean');
             const apiUrl = `/api/bus-data?rid=${rid}&gid=${gid}`;
             $.getJSON(apiUrl, data => {
-                console.log(data);
+                console.log("test", data);
                 plotWKT(data);                
             });
+        }
+
+        function postDrillData(data){
+
         }
 
         function plotWKT(data) {
@@ -134,7 +207,6 @@
     <div class="container-fluid" style="padding:0px;border:0px;height:100%">
         <div class="span12">
             "i do what i want"
-            <div id="map" class="map" style="z-index: 0"></div>
             
             <!--
                 <div id="map" class="map" style="z-index: 0"></div>
