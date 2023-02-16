@@ -42,6 +42,7 @@ namespace ShowBusData
                 return new OkObjectResult(JObject.Parse(result));
             }            
         }
+        /*
         [FunctionName("PostDrillData")]
         public static async Task<IActionResult> PostDrillData([HttpTrigger("get", Route = "drill-data")] HttpRequest req, ILogger log)
         {                              
@@ -130,6 +131,6 @@ namespace ShowBusData
                 
                 return new OkObjectResult(JObject.Parse(result));
             }            
-        }
+        }*/
     }
 }
