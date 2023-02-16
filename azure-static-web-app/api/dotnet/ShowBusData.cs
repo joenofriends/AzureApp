@@ -42,14 +42,16 @@ namespace ShowBusData
                 return new OkObjectResult(JObject.Parse(result));
             }            
         }
-        /*
+        
         [FunctionName("PostDrillData")]
         public static async Task<IActionResult> PostDrillData([HttpTrigger("get", Route = "drill-data")] HttpRequest req, ILogger log)
         {                              
-            drillPackage = 0;
+            string drillString = "";
 
-            Int32.TryParse(req.Query["rid"], out rid);
-            Int32.TryParse(req.Query["gid"], out gid);
+            Int32.TryParse(req.Query["dpack"], out drillPackage);
+
+            var drillPackage = JSON.parse(drillString);
+
 
             using(var conn = new SqlConnection(AZURE_CONN_STRING))
             {
@@ -122,15 +124,12 @@ namespace ShowBusData
                         @SLAMs = drillPackage.SLAMs,
                         @VFL = drillPackage.VFL,
                         @Hazob = drillPackage.Hazob,
-                        @POPs = drillPackage.POPs, 
-
-                        @RouteId = rid,
-                        @GeofenceId = gid
+                        @POPs = drillPackage.POPs
 
                     }, commandType: CommandType.StoredProcedure);                
                 
                 return new OkObjectResult(JObject.Parse(result));
             }            
-        }*/
+        }
     }
 }
