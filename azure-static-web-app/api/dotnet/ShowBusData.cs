@@ -93,7 +93,7 @@ namespace ShowBusData
     {
         private static HttpClient httpClient = new HttpClient();
         private static readonly string AZURE_CONN_STRING = Environment.GetEnvironmentVariable("AzureSQLConnectionString");
-
+        /*
         [FunctionName("ShowBusData")]
         public static async Task<IActionResult> ShowBusData([HttpTrigger("get", Route = "bus-data")] HttpRequest req, ILogger log)
         {                              
@@ -114,7 +114,8 @@ namespace ShowBusData
                 return new OkObjectResult(JObject.Parse(result));
             }            
         }
-        
+        */
+
         [FunctionName("PostDrillData")]
         public static async Task<IActionResult> PostDrillData([HttpTrigger("get", Route = "drill-data")] HttpRequest req, ILogger log)
         {                              
