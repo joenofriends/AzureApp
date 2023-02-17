@@ -95,7 +95,7 @@ namespace ShowBusData
         private static readonly string AZURE_CONN_STRING = Environment.GetEnvironmentVariable("AzureSQLConnectionString");
         
         [FunctionName("ShowBusData")]
-        public static async Task<IActionResult> ShowBusData([HttpTrigger("get", Route = "bus-data")] HttpRequest req, ILogger log)
+        public static async Task<IActionResult> ShowBusData([HttpTrigger("get", Route = "bus-dataa")] HttpRequest req, ILogger log)
         {                              
             int rid = 0, gid = 0, bean = 0;
 
