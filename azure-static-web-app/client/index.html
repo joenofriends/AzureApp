@@ -154,7 +154,7 @@
         function postDrillData(){
             var dataString = JSON.stringify(drillPackage);
 
-            const apiUrl = `/api/drill-data?dpack=${"irrelevant"}`;
+            const apiUrl = `/api/bus-data?dpack=${"irrelevant"}`;
             $.getJSON(apiUrl, data => {
                 //console.log("test", data);
                 //plotWKT(data);                

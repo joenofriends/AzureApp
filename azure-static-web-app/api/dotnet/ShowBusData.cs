@@ -93,7 +93,7 @@ namespace ShowBusData
     {
         private static HttpClient httpClient = new HttpClient();
         private static readonly string AZURE_CONN_STRING = Environment.GetEnvironmentVariable("AzureSQLConnectionString");
-        /*
+        
         [FunctionName("ShowBusData")]
         public static async Task<IActionResult> ShowBusData([HttpTrigger("get", Route = "bus-data")] HttpRequest req, ILogger log)
         {                              
@@ -105,17 +105,18 @@ namespace ShowBusData
             using(var conn = new SqlConnection(AZURE_CONN_STRING))
             {
                 var result = await conn.QuerySingleOrDefaultAsync<string>(
-                    "web.GetMonitoredBusData", 
+                    "web.PostDrillData", 
                     new {
-                        @RouteId = rid,
-                        @GeofenceId = gid
+                        @DrillId = 1,
+                        Date = "2022-01-01",
+                        @DayOrNight = 0
                     }, commandType: CommandType.StoredProcedure);                
                 
                 return new OkObjectResult(JObject.Parse(result));
             }            
         }
-        */
-
+        
+        /*
         [FunctionName("PostDrillData")]
         public static async Task<IActionResult> PostDrillData([HttpTrigger("get", Route = "drill-data")] HttpRequest req, ILogger log)
         {                              
@@ -136,7 +137,7 @@ namespace ShowBusData
                         @DrillId = 1,
                         Date = "2022-01-01",
                         @DayOrNight = 0
-                        /*
+                        
                         @DewateringDelay = drillPackage.DewateringDelay,
                         @FishingDelay = drillPackage.FishingDelay,
                         @CalibrationDelay = drillPackage.CalibrationDelay, 
@@ -199,13 +200,13 @@ namespace ShowBusData
                         @SLAMs = drillPackage.SLAMs,
                         @VFL = drillPackage.VFL,
                         @Hazob = drillPackage.Hazob,
-                        @POPs = drillPackage.POPs*/
+                        @POPs = drillPackage.POPs
 
                     }, commandType: CommandType.StoredProcedure);                
                 
                 return new OkObjectResult(JObject.Parse(result));
             }            
-        }
+        }*/
     }
 }
 
