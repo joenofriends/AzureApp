@@ -145,10 +145,10 @@
             const gid = params.get('gid');
             const bean = params.get('bean');
             const apiUrl = `/api/bus-data?rid=${rid}&gid=${gid}`;
-            /*$.getJSON(apiUrl, data => {
+            $.getJSON(apiUrl, data => {
                 console.log("test", data);
                 plotWKT(data);                
-            });*/ 
+            });
         }
 
         function postDrillData(){
