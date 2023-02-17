@@ -35,7 +35,7 @@ public class WeatherForecast
     {
         public int DrillId { get; set; }
         public string Date { get; set; }
-        public bit DayOrNight { get; set; }
+        public int DayOrNight { get; set; }
         public float DewateringDelay { get; set; }
         public float FishingDelay { get; set; }
         public float CalibrationDelay { get; set; }
