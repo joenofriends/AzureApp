@@ -132,7 +132,7 @@ public class WeatherForecast
         {                              
             string drillString = "";
 
-            Int32.TryParse(req.Query["dpack"], out drillString);
+            drillString = req.Query["dpack"];
 
             DrillPackage? drillPackage = 
                 JsonSerializer.Deserialize<DrillPackage>(drillString);
@@ -154,7 +154,7 @@ public class WeatherForecast
                         @RigBreakdownDelay = drillPackage.RigBreakdownDelay,
                         @SurveyToolSignalLossDelay = drillPackage.SurveyToolSignalLossDelay,
                         @DHMBreakdownDelay = drillPackage.DHMBreakdownDelay,
-                        @ontractorIncidentDelay = drillPackage.ontractorIncidentDelay,
+                        @ontractorIncidentDelay = drillPackage.ContractorIncidentDelay,
                         @ManningDelay = drillPackage.ManningDelay,
                         @OtherContractorDelay = drillPackage.OtherContractorDelay,
                         @StoneDustingDelay = drillPackage.StoneDustingDelay,
