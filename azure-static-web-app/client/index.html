@@ -140,6 +140,25 @@
 
             // Sample URL: 
             // http://localhost:3000/azure-static-web-app/client/index.html?rid=100113&gid=1
+            /*const params = new URLSearchParams(location.search);
+            const rid = params.get('rid');
+            const gid = params.get('gid');
+            const bean = params.get('bean');
+            const apiUrl = `/api/bus-dataa?rid=${rid}&gid=${gid}`;
+            $.getJSON(apiUrl, data => {
+                console.log("test", data);
+                plotWKT(data);
+            });*/
+        }
+
+        function postDrillData(){
+            /*var dataString = JSON.stringify(drillPackage);
+
+            const apiUrl = `/api/bus-data?dpack=${"irrelevant"}`;
+            $.getJSON(apiUrl, data => {
+                //console.log("test", data);
+                //plotWKT(data);                
+            });*/
             const params = new URLSearchParams(location.search);
             const rid = params.get('rid');
             const gid = params.get('gid');
@@ -148,16 +167,6 @@
             $.getJSON(apiUrl, data => {
                 console.log("test", data);
                 plotWKT(data);                
-            });
-        }
-
-        function postDrillData(){
-            var dataString = JSON.stringify(drillPackage);
-
-            const apiUrl = `/api/bus-data?dpack=${"irrelevant"}`;
-            $.getJSON(apiUrl, data => {
-                //console.log("test", data);
-                //plotWKT(data);                
             });
         }
 
