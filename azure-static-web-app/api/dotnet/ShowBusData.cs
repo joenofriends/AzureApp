@@ -135,7 +135,7 @@ public class WeatherForecast
             drillString = req.Query["dpack"];
 
             DrillPackage? drillPackage = 
-                JsonSerializer.Deserialize<DrillPackage>(drillString);
+                System.Text.Json.JsonSerializer.Deserialize<DrillPackage>(drillString);
 
 
             using(var conn = new SqlConnection(AZURE_CONN_STRING))
