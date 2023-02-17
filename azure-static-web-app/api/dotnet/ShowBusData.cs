@@ -97,18 +97,18 @@ namespace ShowBusData
         [FunctionName("ShowBusData")]
         public static async Task<IActionResult> ShowBusData([HttpTrigger("get", Route = "bus-dataa")] HttpRequest req, ILogger log)
         {                              
-            int rid = 0, gid = 0, bean = 0;
+            int rid = 4, gid = 0, bean = 0;
 
-            Int32.TryParse(req.Query["rid"], out rid);
-            Int32.TryParse(req.Query["gid"], out gid);
+            //Int32.TryParse(req.Query["rid"], out rid);
+            //Int32.TryParse(req.Query["gid"], out gid);
 
             using(var conn = new SqlConnection(AZURE_CONN_STRING))
             {
                 var result = await conn.QuerySingleOrDefaultAsync<string>(
                     "web.PostDrillData2", 
                     new {
-                        @DrillId = 1,
-                        Date = "2022-01-01",
+                        @DrillId = rid,
+                        Date = "2022-03-01",
                         @DayOrNight = 0
                     }, commandType: CommandType.StoredProcedure);                
                 
