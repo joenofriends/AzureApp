@@ -132,9 +132,10 @@ namespace ShowBusData
                     "web.PostDrillData", 
                     new {
 
-                        @DrillId = drillPackage.DrillId,
-                        @Date = drillPackage.Date,
-                        @DayOrNight = drillPackage.DayOrNight,
+                        @DrillId = 1,
+                        Date = "2022-01-01",
+                        @DayOrNight = 0
+                        /*
                         @DewateringDelay = drillPackage.DewateringDelay,
                         @FishingDelay = drillPackage.FishingDelay,
                         @CalibrationDelay = drillPackage.CalibrationDelay, 
@@ -197,7 +198,7 @@ namespace ShowBusData
                         @SLAMs = drillPackage.SLAMs,
                         @VFL = drillPackage.VFL,
                         @Hazob = drillPackage.Hazob,
-                        @POPs = drillPackage.POPs
+                        @POPs = drillPackage.POPs*/
 
                     }, commandType: CommandType.StoredProcedure);                
                 
