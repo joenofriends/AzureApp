@@ -105,10 +105,11 @@ namespace ShowBusData
             using(var conn = new SqlConnection(AZURE_CONN_STRING))
             {
                 var result = await conn.QuerySingleOrDefaultAsync<string>(
-                    "web.GetMonitoredBusData", 
+                    "web.PostDrillData2", 
                     new {
-                        @RouteId = rid,
-                        @GeofenceId = gid
+                        @DrillId = 1,
+                        Date = "2022-01-01",
+                        @DayOrNight = 0
                     }, commandType: CommandType.StoredProcedure);                
                 
                 return new OkObjectResult(JObject.Parse(result));
