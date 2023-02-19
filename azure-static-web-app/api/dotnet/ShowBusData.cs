@@ -101,9 +101,9 @@ namespace ShowBusData
             int rid = 4, gid = 0, bean = 0;
 
 
-            int drillId=null;
+            var drillId=null;
             string date= null;
-            int dayOrNight= null;
+            var dayOrNight= null;
             /*
             var DewateringDelay= 0.0;
             var FishingDelay=0.0;
@@ -173,7 +173,7 @@ namespace ShowBusData
 
             Int32.TryParse(req.Query["DrillId"], out drillId);
             string tdate = req.Query["Date"];
-            if (tdate !="" && !(IsNullOrEmpty(req.Query["Date"]))){
+            if (tdate !="" && !(StringValues.IsNullOrEmpty(req.Query["Date"]))){
                 date = tdate;
             }
             Int32.TryParse(req.Query["DayOrNight"], out dayOrNight);
