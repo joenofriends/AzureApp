@@ -173,7 +173,7 @@ namespace ShowBusData
 
             Int32.TryParse(req.Query["DrillId"], out drillId);
             string tdate = req.Query["Date"];
-            if (tdate !="" && !(tdate is StringValues.Empty)){
+            if (tdate !="" && !(tdate == StringValues.Empty)){
                 date = tdate;
             }
             Int32.TryParse(req.Query["DayOrNight"], out dayOrNight);
