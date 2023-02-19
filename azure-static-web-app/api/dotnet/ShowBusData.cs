@@ -104,71 +104,70 @@ namespace ShowBusData
             int drillId = 0;
             string date= null;
             int dayOrNight= 0;
-            /*
-            var DewateringDelay= 0.0;
-            var FishingDelay=0.0;
-            var CalibrationDelay=0.0; 
-            var RigMaintenanceDelay=0.0;
-            var RigBreakdownDelay=0.0;
-            var SurveyToolSignalLossDelay=0.0; 
-            var DHMBreakdownDelay=0.0;
-            var ContractorIncidentDelay=0.0;
-            var ManningDelay=0.0;
-            var OtherContractorDelay=0.0;
-            var StoneDustingDelay=0.0;
-            var NoTransportDelay=0.0; 
-            var NoLoaderDriftyDelay=0.0;
-            var AccessEnvironmentDelay=0.0; 
-            var NoPowerDelay=0.0;
-            var ElectricalCodesDelay=0.0;
-            var DewaterDelay=0.0;
-            var ERZInspectionsDelay=0.0;
-            var MineIncidentDelay=0.0;
-            var SurfaceSuctionDelay=0.0;
-            var OtherPitDelay=0.0;
-            var DrillingCoalHours=0.0;
-            var DrillingStoneHours=0.0;
-            var BranchingHours=0.0;
-            var FlushingHours=0.0;
-            var PushPullRodsHours=0.0;
-            var CoringHours=0.0;
-            var ConduitCycleHours=0.0;
-            var FeedFrameHours=0.0;
-            var StandpipeHours=0.0;
-            var ReamingHours=0.0;
-            var SetupHours=0.0;
-            var MeetingsHours=0.0;
-            var TravelHours=0.0;
-            var GroutingBoreholesHours=0.0;
-            var LabourHours=0.0;
-            var GasFlowsHours=0.0;
-            var ConsumablesHours=0.0;
-            var MobilisationHours=0.0;
-            var DeMobilisationHours=0.0;
-            var PlannedDrillingCoalMetres=0;
-            var PlannedDrillingStoneMetres=0;
-            var PlannedConduitingMetres=0;
-            var PlannedReamingMetres=0;
-            var PlannedCoringMetres=0;
-            var DrilledCoalMetres=0;
-            var DrilledStoneMetres=0;
-            var ConduitingMetres=0;
-            var ReamingMetres=0;
-            var CoringMetres=0; 
-            string StartOfShift= null;
-            string FirstActivity= null;
-            string LastActivity= null;
-            string EndOfShift= null;
-            var DrillerId=0;
-            var Offsider=0;
-            var Fitter=0;
-            var DHMSerialNo=0;
-            var DGSSerialNo=0;
-            var SLAMs=0;
-            var VFL=0;
-            var Hazob=0;
-            var POPs=0;
-            */
+
+            float dewateringDelay= 0.0;
+            float fishingDelay=0.0;
+            float calibrationDelay=0.0; 
+            float rigMaintenanceDelay=0.0;
+            float rigBreakdownDelay=0.0;
+            float surveyToolSignalLossDelay=0.0; 
+            float dHMBreakdownDelay=0.0;
+            float contractorIncidentDelay=0.0;
+            float manningDelay=0.0;
+            float otherContractorDelay=0.0;
+            float stoneDustingDelay=0.0;
+            float noTransportDelay=0.0; 
+            float noLoaderDriftyDelay=0.0;
+            float accessEnvironmentDelay=0.0; 
+            float noPowerDelay=0.0;
+            float electricalCodesDelay=0.0;
+            float dewaterDelay=0.0;
+            float eRZInspectionsDelay=0.0;
+            float mineIncidentDelay=0.0;
+            float surfaceSuctionDelay=0.0;
+            float otherPitDelay=0.0;
+            float drillingCoalHours=0.0;
+            float drillingStoneHours=0.0;
+            float branchingHours=0.0;
+            float flushingHours=0.0;
+            float pushPullRodsHours=0.0;
+            float coringHours=0.0;
+            float conduitCycleHours=0.0;
+            float feedFrameHours=0.0;
+            float standpipeHours=0.0;
+            float reamingHours=0.0;
+            float setupHours=0.0;
+            float meetingsHours=0.0;
+            float travelHours=0.0;
+            float groutingBoreholesHours=0.0;
+            float labourHours=0.0;
+            float gasFlowsHours=0.0;
+            float consumablesHours=0.0;
+            float mobilisationHours=0.0;
+            float deMobilisationHours=0.0;
+            int plannedDrillingCoalMetres=0;
+            int plannedDrillingStoneMetres=0;
+            int plannedConduitingMetres=0;
+            int plannedReamingMetres=0;
+            int plannedCoringMetres=0;
+            int drilledCoalMetres=0;
+            int drilledStoneMetres=0;
+            int conduitingMetres=0;
+            int reamingMetres=0;
+            int coringMetres=0; 
+            string startOfShift= null;
+            string firstActivity= null;
+            string lastActivity= null;
+            string endOfShift= null;
+            int drillerId=0;
+            int offsider=0;
+            int fitter=0;
+            int dHMSerialNo=0;
+            int dGSSerialNo=0;
+            int sLAMs=0;
+            int vFL=0;
+            int hazob=0;
+            int pOPs=0;
 
 
             Int32.TryParse(req.Query["DrillId"], out drillId);
@@ -178,18 +177,150 @@ namespace ShowBusData
             }
             Int32.TryParse(req.Query["DayOrNight"], out dayOrNight);
 
-            //Single.TryParse(req.Query["DewateringDelay"], out gid);
+            Single.TryParse(req.Query["DewateringDelay"], out dewateringDelay);
+            Single.TryParse(req.Query["FishingDelay"], out fishingDelay);
+            Single.TryParse(req.Query["CalibrationDelay"], out calibrationDelay); 
+            Single.TryParse(req.Query["RigMaintenanceDelay"], out rigMaintenanceDelay);
+            Single.TryParse(req.Query["RigBreakdownDelay"], out rigBreakdownDelay);
+            Single.TryParse(req.Query["SurveyToolSignalLossDelay"], out surveyToolSignalLossDelay); 
+            Single.TryParse(req.Query["DHMBreakdownDelay"], out dHMBreakdownDelay);
+            Single.TryParse(req.Query["ContractorIncidentDelay"], out contractorIncidentDelay);
+            Single.TryParse(req.Query["ManningDelay"], out manningDelay);
+            Single.TryParse(req.Query["OtherContractorDelay"], out otherContractorDelay);
+            Single.TryParse(req.Query["StoneDustingDelay"], out stoneDustingDelay);
+            Single.TryParse(req.Query["NoTransportDelay"], out noTransportDelay); 
+            Single.TryParse(req.Query["NoLoaderDriftyDelay"], out noLoaderDriftyDelay);
+            Single.TryParse(req.Query["AccessEnvironmentDelay"], out accessEnvironmentDelay); 
+            Single.TryParse(req.Query["NoPowerDelay"], out noPowerDelay);
+            Single.TryParse(req.Query["ElectricalCodesDelay"], out electricalCodesDelay);
+            Single.TryParse(req.Query["DewaterDelay"], out dewaterDelay);
+            Single.TryParse(req.Query["ERZInspectionsDelay"], out eRZInspectionsDelay);
+            Single.TryParse(req.Query["MineIncidentDelay"], out mineIncidentDelay);
+            Single.TryParse(req.Query["SurfaceSuctionDelay"], out surfaceSuctionDelay);
+            Single.TryParse(req.Query["OtherPitDelay"], out otherPitDelay);
+            Single.TryParse(req.Query["DrillingCoalHours"], out drillingCoalHours);
+            Single.TryParse(req.Query["DrillingStoneHours"], out drillingStoneHours);
+            Single.TryParse(req.Query["BranchingHours"], out branchingHours);
+            Single.TryParse(req.Query["FlushingHours"], out flushingHours);
+            Single.TryParse(req.Query["PushPullRodsHours"], out pushPullRodsHours);
+            Single.TryParse(req.Query["CoringHours"], out coringHours);
+            Single.TryParse(req.Query["ConduitCycleHours"], out conduitCycleHours);
+            Single.TryParse(req.Query["FeedFrameHours"], out feedFrameHours);
+            Single.TryParse(req.Query["StandpipeHours"], out standpipeHours);
+            Single.TryParse(req.Query["ReamingHours"], out reamingHours);
+            Single.TryParse(req.Query["SetupHours"], out setupHours);
+            Single.TryParse(req.Query["MeetingsHours"], out meetingsHours);
+            Single.TryParse(req.Query["TravelHours"], out travelHours);
+            Single.TryParse(req.Query["GroutingBoreholesHours"], out groutingBoreholesHours);
+            Single.TryParse(req.Query["LabourHours"], out labourHours);
+            Single.TryParse(req.Query["GasFlowsHours"], out gasFlowsHours);
+            Single.TryParse(req.Query["ConsumablesHours"], out consumablesHours);
+            Single.TryParse(req.Query["MobilisationHours"], out mobilisationHours);
+            Single.TryParse(req.Query["DeMobilisationHours"], out deMobilisationHours);
+            Int32.TryParse(req.Query["PlannedDrillingCoalMetres"], out plannedDrillingCoalMetres);
+            Int32.TryParse(req.Query["PlannedDrillingStoneMetres"], out plannedDrillingStoneMetres);
+            Int32.TryParse(req.Query["PlannedConduitingMetres"], out plannedConduitingMetres);
+            Int32.TryParse(req.Query["PlannedReamingMetres"], out plannedReamingMetres);
+            Int32.TryParse(req.Query["PlannedCoringMetres"], out plannedCoringMetres);
+            Int32.TryParse(req.Query["DrilledCoalMetres"], out drilledCoalMetres);
+            Int32.TryParse(req.Query["DrilledStoneMetres"], out drilledStoneMetres);
+            Int32.TryParse(req.Query["ConduitingMetres"], out conduitingMetres);
+            Int32.TryParse(req.Query["ReamingMetres"], out reamingMetres);
+            Int32.TryParse(req.Query["CoringMetres"], out coringMetres); 
+            string tstartOfShift = req.Query["StartOfShift"];
+            if (tstartOfShift !="" && !(StringValues.IsNullOrEmpty(req.Query["StartOfShift"]))){
+                startOfShift = tstartOfShift;
+            }string tfirstActivity = req.Query["FirstActivity"];
+            if (tfirstActivity !="" && !(StringValues.IsNullOrEmpty(req.Query["FirstActivity"]))){
+                firstActivity = tfirstActivity;
+            }string tlastActivity = req.Query["LastActivity"];
+            if (tlastActivity !="" && !(StringValues.IsNullOrEmpty(req.Query["LastActivity"]))){
+                lastActivity = tlastActivity;
+            }string tendOfShift = req.Query["EndOfShift"];
+            if (tendOfShift !="" && !(StringValues.IsNullOrEmpty(req.Query["EndOfShift"]))){
+                endOfShift = tendOfShift;
+            }
+            Int32.TryParse(req.Query["DrillerId"], out drillerId);
+            Int32.TryParse(req.Query["Offsider"], out offsider);
+            Int32.TryParse(req.Query["Fitter"], out fitter);
+            Int32.TryParse(req.Query["DHMSerialNo"], out dHMSerialNo);
+            Int32.TryParse(req.Query["DGSSerialNo"], out dGSSerialNo);
+            Int32.TryParse(req.Query["SLAMs"], out sLAMs);
+            Int32.TryParse(req.Query["VFL"], out vFL);
+            Int32.TryParse(req.Query["Hazob"], out hazob);
+            Int32.TryParse(req.Query["POPs"], out pOPs);
 
             using(var conn = new SqlConnection(AZURE_CONN_STRING))
             {
                 var result = await conn.QuerySingleOrDefaultAsync<string>(
-                    "web.PostDrillData2", 
+                    "web.PostDrillData", 
                     new {
                         @DrillId = drillId,
                         Date = date,
-                        @DayOrNight = dayOrNight
-                        
-
+                        @DayOrNight = dayOrNight,
+                        DewateringDelay = dewateringDelay,
+                        FishingDelay = fishingDelay,
+                        CalibrationDelay = calibrationDelay, 
+                        RigMaintenanceDelay = rigMaintenanceDelay,
+                        RigBreakdownDelay = rigBreakdownDelay,
+                        SurveyToolSignalLossDelay = surveyToolSignalLossDelay, 
+                        DHMBreakdownDelay = dHMBreakdownDelay,
+                        ContractorIncidentDelay = contractorIncidentDelay,
+                        ManningDelay = manningDelay,
+                        OtherContractorDelay = otherContractorDelay,
+                        StoneDustingDelay = stoneDustingDelay,
+                        NoTransportDelay = noTransportDelay, 
+                        NoLoaderDriftyDelay = noLoaderDriftyDelay,
+                        AccessEnvironmentDelay = accessEnvironmentDelay, 
+                        NoPowerDelay = noPowerDelay,
+                        ElectricalCodesDelay = electricalCodesDelay,
+                        DewaterDelay = dewaterDelay,
+                        ERZInspectionsDelay = eRZInspectionsDelay,
+                        MineIncidentDelay = mineIncidentDelay,
+                        SurfaceSuctionDelay = surfaceSuctionDelay,
+                        OtherPitDelay = otherPitDelay,
+                        DrillingCoalHours = drillingCoalHours,
+                        DrillingStoneHours = drillingStoneHours,
+                        BranchingHours = branchingHours,
+                        FlushingHours = flushingHours,
+                        PushPullRodsHours = pushPullRodsHours,
+                        CoringHours = coringHours,
+                        ConduitCycleHours = conduitCycleHours,
+                        FeedFrameHours = feedFrameHours,
+                        StandpipeHours = standpipeHours,
+                        ReamingHours = reamingHours,
+                        SetupHours = setupHours,
+                        MeetingsHours = meetingsHours,
+                        TravelHours = travelHours,
+                        GroutingBoreholesHours = groutingBoreholesHours,
+                        LabourHours = labourHours,
+                        GasFlowsHours = gasFlowsHours,
+                        ConsumablesHours = consumablesHours,
+                        MobilisationHours = mobilisationHours,
+                        DeMobilisationHours = deMobilisationHours,
+                        @PlannedDrillingCoalMetres = plannedDrillingCoalMetres,
+                        @PlannedDrillingStoneMetres = plannedDrillingStoneMetres,
+                        @PlannedConduitingMetres = plannedConduitingMetres,
+                        @PlannedReamingMetres = plannedReamingMetres,
+                        @PlannedCoringMetres = plannedCoringMetres,
+                        @DrilledCoalMetres = drilledCoalMetres,
+                        @DrilledStoneMetres = drilledStoneMetres,
+                        @ConduitingMetres = conduitingMetres,
+                        @ReamingMetres = reamingMetres,
+                        @CoringMetres = coringMetres, 
+                        StartOfShift = startOfShift,
+                        FirstActivity = firstActivity,
+                        LastActivity = lastActivity,
+                        EndOfShift = endOfShift,
+                        @DrillerId = drillerId,
+                        @Offsider = offsider,
+                        @Fitter = fitter,
+                        @DHMSerialNo = dHMSerialNo,
+                        @DGSSerialNo = dGSSerialNo,
+                        @SLAMs = sLAMs,
+                        @VFL = vFL,
+                        @Hazob = hazob,
+                        @POPs = pOPs,
 
                     }, commandType: CommandType.StoredProcedure);                
                 
