@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using System.Text.Json;
+using Microsoft.Extensions.Primitives.StringValues;
 
 namespace ShowBusData
 {    
@@ -99,17 +100,97 @@ namespace ShowBusData
         {                              
             int rid = 4, gid = 0, bean = 0;
 
-            //Int32.TryParse(req.Query["rid"], out rid);
-            //Int32.TryParse(req.Query["gid"], out gid);
+
+            int drillId=null;
+            string date= null;
+            int dayOrNight= null;
+            /*
+            var DewateringDelay= 0.0;
+            var FishingDelay=0.0;
+            var CalibrationDelay=0.0; 
+            var RigMaintenanceDelay=0.0;
+            var RigBreakdownDelay=0.0;
+            var SurveyToolSignalLossDelay=0.0; 
+            var DHMBreakdownDelay=0.0;
+            var ContractorIncidentDelay=0.0;
+            var ManningDelay=0.0;
+            var OtherContractorDelay=0.0;
+            var StoneDustingDelay=0.0;
+            var NoTransportDelay=0.0; 
+            var NoLoaderDriftyDelay=0.0;
+            var AccessEnvironmentDelay=0.0; 
+            var NoPowerDelay=0.0;
+            var ElectricalCodesDelay=0.0;
+            var DewaterDelay=0.0;
+            var ERZInspectionsDelay=0.0;
+            var MineIncidentDelay=0.0;
+            var SurfaceSuctionDelay=0.0;
+            var OtherPitDelay=0.0;
+            var DrillingCoalHours=0.0;
+            var DrillingStoneHours=0.0;
+            var BranchingHours=0.0;
+            var FlushingHours=0.0;
+            var PushPullRodsHours=0.0;
+            var CoringHours=0.0;
+            var ConduitCycleHours=0.0;
+            var FeedFrameHours=0.0;
+            var StandpipeHours=0.0;
+            var ReamingHours=0.0;
+            var SetupHours=0.0;
+            var MeetingsHours=0.0;
+            var TravelHours=0.0;
+            var GroutingBoreholesHours=0.0;
+            var LabourHours=0.0;
+            var GasFlowsHours=0.0;
+            var ConsumablesHours=0.0;
+            var MobilisationHours=0.0;
+            var DeMobilisationHours=0.0;
+            var PlannedDrillingCoalMetres=0;
+            var PlannedDrillingStoneMetres=0;
+            var PlannedConduitingMetres=0;
+            var PlannedReamingMetres=0;
+            var PlannedCoringMetres=0;
+            var DrilledCoalMetres=0;
+            var DrilledStoneMetres=0;
+            var ConduitingMetres=0;
+            var ReamingMetres=0;
+            var CoringMetres=0; 
+            string StartOfShift= null;
+            string FirstActivity= null;
+            string LastActivity= null;
+            string EndOfShift= null;
+            var DrillerId=0;
+            var Offsider=0;
+            var Fitter=0;
+            var DHMSerialNo=0;
+            var DGSSerialNo=0;
+            var SLAMs=0;
+            var VFL=0;
+            var Hazob=0;
+            var POPs=0;
+            */
+
+
+            Int32.TryParse(req.Query["DrillId"], out drillId);
+            string tdate = req.Query["Date"];
+            if (tdate !="" && !(tdate is StringValues.Empty)){
+                date = tdate;
+            }
+            Int32.TryParse(req.Query["DayOrNight"], out dayOrNight);
+
+            //Single.TryParse(req.Query["DewateringDelay"], out gid);
 
             using(var conn = new SqlConnection(AZURE_CONN_STRING))
             {
                 var result = await conn.QuerySingleOrDefaultAsync<string>(
                     "web.PostDrillData2", 
                     new {
-                        @DrillId = rid,
-                        Date = "2022-03-01",
-                        @DayOrNight = 0
+                        @DrillId = drillId,
+                        Date = date,
+                        @DayOrNight = dayOrNight
+                        
+
+
                     }, commandType: CommandType.StoredProcedure);                
                 
                 return new OkObjectResult(JObject.Parse(result));
