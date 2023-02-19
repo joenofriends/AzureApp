@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 using System.Text.Json;
 using Microsoft.Extensions.Primitives;
 
-namespace ShowBusData
+namespace ShowBusDataa
 {    
 
     public class DrillPackage
@@ -90,13 +90,13 @@ namespace ShowBusData
         public int POPs { get; set; }
     }
 
-    public static class ShowBusDataMain
+    public static class ShowBusDataaMain
     {
         private static HttpClient httpClient = new HttpClient();
         private static readonly string AZURE_CONN_STRING = Environment.GetEnvironmentVariable("AzureSQLConnectionString");
         
-        [FunctionName("ShowBusData")]
-        public static async Task<IActionResult> ShowBusData([HttpTrigger("get", Route = "bus-dataa")] HttpRequest req, ILogger log)
+        [FunctionName("ShowBusDataa")]
+        public static async Task<IActionResult> ShowBusDataa([HttpTrigger("get", Route = "bus-dataa")] HttpRequest req, ILogger log)
         {                              
             int rid = 4, gid = 0, bean = 0;
 
