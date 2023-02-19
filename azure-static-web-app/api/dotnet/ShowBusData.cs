@@ -101,9 +101,9 @@ namespace ShowBusData
             int rid = 4, gid = 0, bean = 0;
 
 
-            int drillId = null;
+            int drillId = 0;
             string date= null;
-            int dayOrNight= null;
+            int dayOrNight= 0;
             /*
             var DewateringDelay= 0.0;
             var FishingDelay=0.0;
