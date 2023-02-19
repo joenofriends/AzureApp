@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using System.Text.Json;
-using Microsoft.Extensions.Primitives.StringValues;
+using Microsoft.Extensions.Primitives;
 
 namespace ShowBusData
 {    
@@ -173,7 +173,7 @@ namespace ShowBusData
 
             Int32.TryParse(req.Query["DrillId"], out drillId);
             string tdate = req.Query["Date"];
-            if (tdate !="" && !(req.Query["Date"] == StringValues.Empty)){
+            if (tdate !="" && !(IsNullOrEmpty(req.Query["Date"]))){
                 date = tdate;
             }
             Int32.TryParse(req.Query["DayOrNight"], out dayOrNight);
