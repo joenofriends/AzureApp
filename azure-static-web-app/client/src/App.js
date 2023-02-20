@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import jQuery from 'jquery'
+import React, { useState } from "react";
 
-
-var Date='2029-03-02';
+var Date='2029-03-03';
 var DayOrNight=1;
 var SiteId =1;
 var DewateringDelay=0.0;
@@ -101,7 +101,7 @@ function App() {
       <div>
         <div>
             "i do what i want"
-            <button onclick={postDrillData()}>Click me</button>
+            <button onClick={postDrillData()}>Click me</button>
             
         </div>
       </div>
