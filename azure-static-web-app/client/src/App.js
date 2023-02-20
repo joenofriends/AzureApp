@@ -98,8 +98,8 @@ function postDrillData(){
 function App() {
   return (
     <div className="App">
-      <div class="container-fluid" style="padding:0px;border:0px;height:100%">
-        <div class="span12">
+      <div>
+        <div>
             "i do what i want"
             <button onclick={postDrillData()}>Click me</button>
             
