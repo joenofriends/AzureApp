@@ -1,3 +1,5 @@
+
+
 var raster;
 var source;
 var vector;
@@ -159,45 +161,13 @@ var drillPackage =
     "Hazob=0,
     "POPs=0, 
 };*/
-var features = new ol.Collection();
-var format = new ol.format.WKT();
+
 var current_shape = "point";
 var someData;
 
-var fill = new ol.style.Fill({
-    color: 'rgba(167, 122, 210, 0.2)'
-});
-
-var stroke = new ol.style.Stroke({
-    color: '#0404B4',
-    width: 2
-});
-
-var styles = [
-    new ol.style.Style({
-        image: new ol.style.Circle({
-            fill: fill,
-            stroke: stroke,
-            radius: 5
-        }),
-        fill: fill,
-        stroke: stroke
-    })
-];
 
 function init() {   
-    raster = new ol.layer.Tile({
-source: new ol.source.OSM()
-    });
 
-    map = new ol.Map({
-        layers: [raster],
-        target: 'map',
-        view: new ol.View({
-            center: [0, 0],
-            zoom: 2
-        })
-    });
 
     // Sample URL: 
     // http://localhost:3000/azure-static-web-app/client/index.html?rid=100113&gid=1
