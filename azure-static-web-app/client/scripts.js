@@ -1,4 +1,6 @@
-
+import "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js";
+import "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js";
+import "https://openlayers.org/en/v4.6.5/css/ol.css";
 
 var raster;
 var source;
