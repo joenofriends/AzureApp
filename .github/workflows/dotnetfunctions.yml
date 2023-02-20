@@ -10,6 +10,7 @@ env:
       AZURE_FUNCTIONAPP_PACKAGE_PATH: 'azure-function/dotnet' # set this to the path to your web app project, defaults to the repository root
       AZURE_FUNCTIONAPP_NAME: antho-catch-bus # set this to your application's name
       DOTNET_VERSION: '6.0'
+      CI: false; 
 
 jobs:
   build-and-deploy-function-app:
