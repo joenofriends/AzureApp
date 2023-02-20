@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import jQuery from 'jQuery'
+import {jQuery} from 'jQuery'
 
 
 var Date='2029-03-02';
