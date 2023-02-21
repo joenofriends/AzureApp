@@ -1,8 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import jQuery from 'jquery'
-import React, { useState } from "react";
+import React from 'react';
 
+
+var DrillId=0;
 var Date='2029-03-03';
 var DayOrNight=1;
 var SiteId =1;
@@ -95,13 +97,161 @@ function postDrillData(){
     });
 }
 
+function getDrillData(){
+  const apiUrl = `/api/drill-data`;
+    jQuery.getJSON(apiUrl, data => {
+      console.log("test", data);
+      //plotWKT(data); 
+    });
+}
+
+function Page(props){
+  const [date, setDate] = React.useState();
+  const [dayOrNight, setDayOrNight] = React.useState();
+  const [siteId, setSiteId] = React.useState();
+  const [dewateringDelay, setDewateringDelay] = React.useState();
+  const [fishingDelay, setFishingDelay] = React.useState();
+  const [calibrationDelay, setCalibrationDelay] = React.useState(); 
+  const [rigMaintenanceDelay, setRigMaintenanceDelay] = React.useState();
+  const [rigBreakdownDelay, setRigBreakdownDelay] = React.useState();
+  const [surveyToolSignalLossDelay, setSurveyToolSignalLossDelay] = React.useState(); 
+  const [dHMBreakdownDelay, setDHMBreakdownDelay] = React.useState();
+  const [contractorIncidentDelay, setContractorIncidentDelay] = React.useState();
+  const [manningDelay, setManningDelay] = React.useState();
+  const [otherContractorDelay, setOtherContractorDelay] = React.useState();
+  const [stoneDustingDelay, setStoneDustingDelay] = React.useState();
+  const [noTransportDelay, setNoTransportDelay] = React.useState(); 
+  const [noLoaderDriftyDelay, setNoLoaderDriftyDelay] = React.useState();
+  const [accessEnvironmentDelay, setAccessEnvironmentDelay] = React.useState(); 
+  const [noPowerDelay, setNoPowerDelay] = React.useState();
+  const [electricalCodesDelay, setElectricalCodesDelay] = React.useState();
+  const [dewaterDelay, setDewaterDelay] = React.useState();
+  const [eRZInspectionsDelay, setERZInspectionsDelay] = React.useState();
+  const [mineIncidentDelay, setMineIncidentDelay] = React.useState();
+  const [surfaceSuctionDelay, setSurfaceSuctionDelay] = React.useState();
+  const [otherPitDelay, setOtherPitDelay] = React.useState();
+  const [drillingCoalHours, setDrillingCoalHours] = React.useState();
+  const [drillingStoneHours, setDrillingStoneHours] = React.useState();
+  const [branchingHours, setBranchingHours] = React.useState();
+  const [flushingHours, setFlushingHours] = React.useState();
+  const [pushPullRodsHours, setPushPullRodsHours] = React.useState();
+  const [coringHours, setCoringHours] = React.useState();
+  const [conduitCycleHours, setConduitCycleHours] = React.useState();
+  const [feedFrameHours, setFeedFrameHours] = React.useState();
+  const [standpipeHours, setStandpipeHours] = React.useState();
+  const [reamingHours, setReamingHours] = React.useState();
+  const [setupHours, setSetupHours] = React.useState();
+  const [meetingsHours, setMeetingsHours] = React.useState();
+  const [travelHours, setTravelHours] = React.useState();
+  const [groutingBoreholesHours, setGroutingBoreholesHours] = React.useState();
+  const [labourHours, setLabourHours] = React.useState();
+  const [gasFlowsHours, setGasFlowsHours] = React.useState();
+  const [consumablesHours, setConsumablesHours] = React.useState();
+  const [mobilisationHours, setMobilisationHours] = React.useState();
+  const [deMobilisationHours, setDeMobilisationHours] = React.useState();
+  const [plannedDrillingCoalMetres, setPlannedDrillingCoalMetres] = React.useState();
+  const [plannedDrillingStoneMetres, setPlannedDrillingStoneMetres] = React.useState();
+  const [plannedConduitingMetres, setPlannedConduitingMetres] = React.useState();
+  const [plannedReamingMetres, setPlannedReamingMetres] = React.useState();
+  const [plannedCoringMetres, setPlannedCoringMetres] = React.useState();
+  const [drilledCoalMetres, setDrilledCoalMetres] = React.useState();
+  const [drilledStoneMetres, setDrilledStoneMetres] = React.useState();
+  const [conduitingMetres, setConduitingMetres] = React.useState();
+  const [reamingMetres, setReamingMetres] = React.useState();
+  const [coringMetres, setCoringMetres] = React.useState(); 
+  const [startOfShift, setStartOfShift] = React.useState();
+  const [firstActivity, setFirstActivity] = React.useState();
+  const [lastActivity, setLastActivity] = React.useState();
+  const [endOfShift, setEndOfShift] = React.useState();
+  const [fitter, setFitter] = React.useState();
+  const [sLAMs, setSLAMs] = React.useState();
+  const [vFL, setVFL] = React.useState();
+  const [hazob, setHazob] = React.useState();
+  const [pOPs, setPOPs] = React.useState();
+
+  // drill exclusives
+  const [drillId, setDrillId] = React.useState();
+  const [drillerId, setDrillerId] = React.useState();
+  const [offsider, setOffsider] = React.useState();
+  const [dHMSerialNo, setDHMSerialNo] = React.useState();
+  const [dGSSerialNo, setDGSSerialNo] = React.useState();
+
+  // Service Exclusives
+  const [supervisorId, setSupervisorId] = React.useState();
+  const [gasFlowsAndServices, setGasFlowsAndServices] = React.useState();
+  const [otherServices, setOtherServices] = React.useState();
+  const [tBTSite, setTBTSite] = React.useState();
+  const [tBTRadco, setTBTRadco] = React.useState();
+  const [jSACompleted, setJSACompleted] = React.useState();
+  const [sWPReview, setSWPReview] = React.useState();
+
+  // Form Config
+  const [sites, setSites] = React.useState([]);
+
+  return (
+    <DrillForm siteSetter = {setSiteId}></DrillForm>
+  )
+}
+
+class SiteDropdown extends React.Component{
+  constructor(props) {
+    super(props);
+    //console.log(props)
+    //<button onClick={() => this.props.drillChanger("HERS1240")}>HERS1240</button>
+  }
+  render() {  
+    const sites = this.props.sites;
+    const options = sites.map((site)=>
+      <option value = {String(site)}>{site}</option>
+    );
+    //console.log(this.props)
+    return (
+      <select onChange={(e) => this.props.siteChanger(e.target.value)}>
+        <option value = "null">-Select a {this.props.object}-</option>
+        {options}
+      </select>
+    );
+  }
+}
+
+
+
+
+function DrillForm(props){
+  return (
+    <div>
+      <SiteDropdown siteChanger = {props.siteSetter} sites = {sites} object = "Site"></SiteDropdown>
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  );
+}
+
+function ServicesForm(props){
+  return (
+    <form onSubmit={this.handleSubmit}>
+      <label>
+        Name:
+        <input type="text" value={this.state.value} onChange={this.handleChange} />
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
+  );
+}
+
 function App() {
   return (
     <div className="App">
       <div>
         <div>
             "i do what i want"
-            <button onClick={postDrillData()}>Click me</button>
+            <button onClick={getDrillData()}>Click me</button>
+            <Page></Page>
             
         </div>
       </div>
