@@ -189,7 +189,7 @@ function Page(props){
   const [sites, setSites] = React.useState([]);
 
   return (
-    <DrillForm siteSetter = {setSiteId}></DrillForm>
+    <DrillForm siteSetter = {setSiteId} sites={sites}></DrillForm>
   )
 }
 
@@ -220,7 +220,7 @@ class SiteDropdown extends React.Component{
 function DrillForm(props){
   return (
     <div>
-      <SiteDropdown siteChanger = {props.siteSetter} sites = {sites} object = "Site"></SiteDropdown>
+      <SiteDropdown siteChanger = {props.siteSetter} sites = {props.sites} object = "Site"></SiteDropdown>
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
