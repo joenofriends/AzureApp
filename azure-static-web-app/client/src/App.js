@@ -251,7 +251,6 @@ function App() {
         <div>
             "i do what i want"
             <button onClick={getDrillData()}>Click me</button>
-            <SiteDropdown></SiteDropdown>
             
         </div>
       </div>
