@@ -214,14 +214,14 @@ class SiteDropdown extends React.Component{
   }
 }
 
-
+//<form onSubmit={this.handleSubmit}
 
 
 function DrillForm(props){
   return (
     <div>
       <SiteDropdown siteChanger = {props.siteSetter} sites = {props.sites} object = "Site"></SiteDropdown>
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <label>
           Name:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
