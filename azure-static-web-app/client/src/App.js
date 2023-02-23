@@ -98,7 +98,7 @@ function postDrillData(){
 }
 
 function getDrillData(){
-  const apiUrl = `/api/bus-dataa`;
+  const apiUrl = `/api/drill-data`;
     jQuery.getJSON(apiUrl, data => {
       console.log("test", data);
       //plotWKT(data); 

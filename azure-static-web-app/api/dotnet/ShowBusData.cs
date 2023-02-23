@@ -28,13 +28,28 @@ namespace ShowDrillData
         public static async Task<IActionResult> ShowDrillData([HttpTrigger("get", Route = "drill-data")] HttpRequest req, ILogger log)
         {                              
 
+//            using(var conn = new SqlConnection(AZURE_CONN_STRING))
+//            {
+//                var result = await conn.QuerySingleOrDefaultAsync<string>(
+//                    "web.getDrills", commandType: CommandType.StoredProcedure);                                
+//               return new OkObjectResult(JObject.Parse(result));
+//            }    
+            int rid = 100113, gid = 2;
+
+            Int32.TryParse(req.Query["rid"], out rid);
+            Int32.TryParse(req.Query["gid"], out gid);
+            
             using(var conn = new SqlConnection(AZURE_CONN_STRING))
             {
                 var result = await conn.QuerySingleOrDefaultAsync<string>(
-                    "web.getDrills", commandType: CommandType.StoredProcedure);                
+                    "web.GetMonitoredBusData", 
+                    new {
+                        @RouteId = rid,
+                        @GeofenceId = gid
+                    }, commandType: CommandType.StoredProcedure);                
                 
                 return new OkObjectResult(JObject.Parse(result));
-            }            
+            }           
         }
     }
 }
@@ -454,7 +469,7 @@ namespace ShowBusDataa
         [FunctionName("ShowBusDataa")]
         public static async Task<IActionResult> ShowBusDataa([HttpTrigger("get", Route = "bus-dataa")] HttpRequest req, ILogger log)
         {                              
-            int rid = 0, gid = 0;
+            int rid = 100113, gid = 2;
 
             Int32.TryParse(req.Query["rid"], out rid);
             Int32.TryParse(req.Query["gid"], out gid);
