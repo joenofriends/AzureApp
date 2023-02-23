@@ -28,18 +28,18 @@ namespace ShowDrillData
         public static async Task<IActionResult> ShowDrillData([HttpTrigger("get", Route = "drill-data")] HttpRequest req, ILogger log)
         {                              
 
-//            using(var conn = new SqlConnection(AZURE_CONN_STRING))
-//            {
-//                var result = await conn.QuerySingleOrDefaultAsync<string>(
-//                    "web.getDrills", commandType: CommandType.StoredProcedure);                                
-//               return new OkObjectResult(JObject.Parse(result));
-//            }    
-            int rid = 100113, gid = 2;
+            using(var conn = new SqlConnection(AZURE_CONN_STRING))
+            {
+                var result = await conn.QuerySingleOrDefaultAsync<string>(
+                    "web.getDrills", new {}, commandType: CommandType.StoredProcedure);                                
+               return new OkObjectResult(JObject.Parse(result));
+            }    
+            //int rid = 100113, gid = 2;
 
             //Int32.TryParse(req.Query["rid"], out rid);
             //Int32.TryParse(req.Query["gid"], out gid);
             
-            using(var conn = new SqlConnection(AZURE_CONN_STRING))
+            /*using(var conn = new SqlConnection(AZURE_CONN_STRING))
             {
                 var result = await conn.QuerySingleOrDefaultAsync<string>(
                     "web.GetMonitoredBusData", 
@@ -49,7 +49,7 @@ namespace ShowDrillData
                     }, commandType: CommandType.StoredProcedure);                
                 
                 return new OkObjectResult(JObject.Parse(result));
-            }           
+            }   */        
         }
     }
 }
