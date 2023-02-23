@@ -36,8 +36,8 @@ namespace ShowDrillData
 //            }    
             int rid = 100113, gid = 2;
 
-            Int32.TryParse(req.Query["rid"], out rid);
-            Int32.TryParse(req.Query["gid"], out gid);
+            //Int32.TryParse(req.Query["rid"], out rid);
+            //Int32.TryParse(req.Query["gid"], out gid);
             
             using(var conn = new SqlConnection(AZURE_CONN_STRING))
             {
