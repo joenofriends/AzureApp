@@ -5,7 +5,7 @@ import React from 'react';
 
 
 var DrillId=0;
-var Date='2029-03-03';
+var Date='2029-03-05';
 var DayOrNight=1;
 var SiteId =1;
 var DewateringDelay=0.0;
@@ -98,7 +98,7 @@ function postDrillData(){
 }
 
 function getDrillData(){
-  const apiUrl = `/api/drill-data`;
+  const apiUrl = `/api/bus-dataa`;
     jQuery.getJSON(apiUrl, data => {
       console.log("test", data);
       //plotWKT(data); 
